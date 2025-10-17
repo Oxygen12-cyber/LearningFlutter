@@ -22,6 +22,20 @@ class _CounterPageState extends State<CounterPage> {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.deepPurple[400],
+          centerTitle: true,
+          title: Text(
+            "Welcome",
+            style: TextStyle(color: Colors.white, fontSize: 24),
+          ),
+          leading: Icon(Icons.menu, color: Colors.white),
+        ),
+        body: Expanded(child: Container(color: Colors.deepPurple[200])),
+      ),
+    );
   }
 }
