@@ -1,0 +1,103 @@
+import 'package:flutter/material.dart';
+import 'component.dart';
+
+class SettingsPage extends StatelessWidget {
+  const SettingsPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        centerTitle: true,
+        leading: IconButton.filled(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.chevron_left),
+          style: IconButton.styleFrom(
+            elevation: 1,
+            padding: EdgeInsets.all(12),
+            backgroundColor:
+                Theme.of(context).colorScheme.brightness == Brightness.dark
+                ? Color(0xff414141)
+                : Color(0xffffffff),
+          ),
+        ),
+        title: Text(
+          "Settings",
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 26),
+        ),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          SizedBox(height: 30),
+          UIBlock(
+            baby: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Image.asset(
+                  "assets/profile.png",
+                  fit: BoxFit.cover,
+                  width: 100,
+                  height: 100,
+                ),
+                Text.rich(
+                  TextSpan(
+                    text: "Alfred Daniel\n",
+                    style: TextStyle(
+                      color: Theme.of(context).appBarTheme.foregroundColor,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
+                    children: [
+                      TextSpan(
+                        text: "Product/UI Designer",
+                        style: TextStyle(
+                          color: Theme.of(
+                            context,
+                          ).appBarTheme.foregroundColor!.withValues(alpha: 0.5),
+                          fontWeight: FontWeight.w200,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Spacer(),
+                Padding(
+                  padding: const EdgeInsets.only(right: 10.0),
+                  child: Icon(
+                    Icons.chevron_right,
+                    size: 32,
+                    color: Theme.of(context).appBarTheme.foregroundColor,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height: 30),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  "Other Settings",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.left,
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height: 30),
+
+          UIBlock(),
+        ],
+      ),
+    );
+  }
+}

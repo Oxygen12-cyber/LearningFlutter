@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:device_preview/device_preview.dart';
 import 'components/component.dart';
+import 'components/tracking_page.dart';
 
 void main() {
   runApp(DevicePreview(enabled: !kReleaseMode, builder: (context) => MyApp()));
@@ -16,15 +17,47 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            // crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(height: size.height * .1),
-              Center(
+      theme: ThemeData(
+        brightness: Brightness.light,
+        appBarTheme: AppBarTheme(
+          foregroundColor: Color(0xff181617),
+          backgroundColor: Color(0xfffaf8f9),
+        ),
+        scaffoldBackgroundColor: Color(0xfffaf8f9),
+      ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        appBarTheme: AppBarTheme(
+          foregroundColor: Color(0xffffffff),
+          backgroundColor: Color(0xff181617),
+        ),
+        scaffoldBackgroundColor: Color(0xff181617),
+      ),
+
+      themeMode: ThemeMode.system,
+      home: PageOne(size: size),
+    );
+  }
+}
+
+class PageOne extends StatelessWidget {
+  const PageOne({super.key, required this.size});
+
+  final Size size;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 15),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          // crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(height: size.height * .1),
+            Center(
+              child: SingleChildScrollView(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -62,7 +95,12 @@ class MyApp extends StatelessWidget {
                     SizedBox(height: 20),
                     SummaryBlock(),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => LoginPage()),
+                        );
+                      },
                       child: Padding(
                         padding: const EdgeInsets.all(15),
                         child: Container(
@@ -96,8 +134,8 @@ class MyApp extends StatelessWidget {
                   ],
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

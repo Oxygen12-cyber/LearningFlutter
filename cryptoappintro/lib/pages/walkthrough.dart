@@ -60,7 +60,7 @@ class BaseBg extends StatelessWidget {
             children: [
               Text(
                 "Pinance",
-                style: GoogleFonts.poppins(
+                style: GoogleFonts.k2d(
                   color: Color(0xfffac536),
                   fontSize: 50,
                   fontWeight: FontWeight.bold,
@@ -69,7 +69,7 @@ class BaseBg extends StatelessWidget {
               ),
               SizedBox(height: 8),
               Text(
-                "Trusted by millions of users\n worldwide",
+                "Trusted by billions of users\n worldwide",
                 style: GoogleFonts.poppins(
                   color: Color(0xfffac536),
                   fontSize: 24,

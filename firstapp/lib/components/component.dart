@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
 class ProductBar extends StatelessWidget {
   const ProductBar({super.key});
@@ -143,6 +142,108 @@ class SummaryBlock extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class LoginFields extends StatelessWidget {
+  const LoginFields({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      alignment: Alignment.center,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 12),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            TextField(
+              textAlign: TextAlign.left,
+              textAlignVertical: TextAlignVertical.center,
+              keyboardType: TextInputType.emailAddress,
+              decoration: InputDecoration(
+                filled: true,
+                fillColor: const Color.fromARGB(255, 247, 247, 247),
+                hintText: "Email",
+                prefixIcon: Icon(Icons.email, color: Colors.black, size: 18),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: BorderSide.none,
+                ),
+              ),
+            ),
+            SizedBox(height: 10),
+            TextField(
+              textAlign: TextAlign.left,
+              textAlignVertical: TextAlignVertical.center,
+              keyboardType: TextInputType.visiblePassword,
+              decoration: InputDecoration(
+                filled: true,
+                fillColor: const Color.fromARGB(255, 235, 234, 234),
+                hintText: "Password",
+                prefixIcon: Icon(
+                  Icons.password_outlined,
+                  color: Colors.black,
+                  size: 18,
+                ),
+                suffixIcon: Icon(Icons.remove_red_eye, color: Colors.black),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: BorderSide.none,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class IconBlock extends StatelessWidget {
+  final String imagesrc;
+
+  const IconBlock({super.key, required this.imagesrc});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      alignment: Alignment.center,
+      padding: EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: Colors.grey,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Image.asset(imagesrc, fit: BoxFit.cover, width: 24, height: 24),
+    );
+  }
+}
+
+class UIBlock extends StatelessWidget {
+  final Widget baby ;
+  const UIBlock({
+    super.key,
+    this.baby = const Placeholder()
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 12.0),
+      child: Container(
+        width: size.width,
+        decoration: BoxDecoration(
+          color: Theme.of(context).colorScheme.brightness == Brightness.dark
+              ? Color(0xff414141)
+              : Color(0xffffffff),
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: baby,
       ),
     );
   }

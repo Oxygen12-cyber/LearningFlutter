@@ -84,8 +84,19 @@ class Homepage extends StatelessWidget {
           ],
         ),
         body: Center(child: Text("Hello, Oxygen")),
-        bottomNavigationBar: BottomNavigationBar(items: 
-          
+        bottomNavigationBar: BottomNavigationBar(
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home_max_rounded),
+              label: "Home",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.settings),
+              label: "Settings",
+            ),
+          ],
         ),
       ),
     );

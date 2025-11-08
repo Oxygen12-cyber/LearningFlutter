@@ -3,7 +3,7 @@ import 'package:device_preview/device_preview.dart';
 import 'pages/homepage.dart';
 
 void main() {
-  runApp(DevicePreview(builder: (context) => MyApp()));
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
