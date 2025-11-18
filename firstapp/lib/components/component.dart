@@ -223,11 +223,8 @@ class IconBlock extends StatelessWidget {
 }
 
 class UIBlock extends StatelessWidget {
-  final Widget baby ;
-  const UIBlock({
-    super.key,
-    this.baby = const Placeholder()
-  });
+  final Widget baby;
+  const UIBlock({super.key, this.baby = const Placeholder()});
 
   @override
   Widget build(BuildContext context) {
@@ -244,6 +241,46 @@ class UIBlock extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
         ),
         child: baby,
+      ),
+    );
+  }
+}
+
+class UIList extends StatelessWidget {
+  final IconData customIcon;
+  final String uiTitle;
+  final Widget? suffixIcon;
+  final Color? color;
+
+  const UIList({
+    super.key,
+    required this.customIcon,
+    required this.uiTitle,
+    this.suffixIcon,
+    this.color
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 5),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Icon(customIcon, size: 32, color: color,),
+          SizedBox(width: 5),
+          Text(
+            uiTitle,
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: color ),
+          ),
+          Spacer(),
+          suffixIcon ??
+              Icon(
+                Icons.chevron_right,
+                size: 32,
+                color: Theme.of(context).appBarTheme.foregroundColor,
+              ),
+        ],
       ),
     );
   }

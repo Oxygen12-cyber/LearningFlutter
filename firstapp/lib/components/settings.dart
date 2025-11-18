@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'component.dart';
 
-class SettingsPage extends StatelessWidget {
+class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
 
+  @override
+  State<SettingsPage> createState() => _SettingsPageState();
+}
+
+class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -95,7 +100,59 @@ class SettingsPage extends StatelessWidget {
           ),
           SizedBox(height: 30),
 
-          UIBlock(),
+          UIBlock(
+            baby: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  UIList(customIcon: Icons.person, uiTitle: "Profile details"),
+                  Divider(),
+                  UIList(customIcon: Icons.lock, uiTitle: "Password"),
+                  Divider(),
+                  UIList(
+                    customIcon: Icons.notifications,
+                    uiTitle: "Notifications",
+                  ),
+                  Divider(),
+                  UIList(
+                    customIcon: Icons.dark_mode,
+                    uiTitle: "Dark Mode",
+                    suffixIcon: Switch(
+                      value: false,
+                      onChanged: (bool value) {},
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(height: 20),
+          UIBlock(
+            baby: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  UIList(customIcon: Icons.note, uiTitle: "Password"),
+                  Divider(),
+                  UIList(customIcon: Icons.chat, uiTitle: "Notifications"),
+                  Divider(),
+                  UIList(
+                    color: Colors.red,
+                    customIcon: Icons.delete,
+                    uiTitle: "Dark Mode",
+                    suffixIcon: Switch(
+                      value: false,
+                      onChanged: (bool value) {},
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
